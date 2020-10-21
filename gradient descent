@@ -1,0 +1,19 @@
+## Compute Cost
+function J = computeCost(X, y, theta)
+m = length(y); % number of training examples
+J = 0;
+J = 1/(2*m)*sum((X*theta-y).^2);
+end
+
+
+#gradient Descent
+function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)
+m = length(y); % number of training examples
+J_history = zeros(num_iters, 1);
+for iter = 1:num_iters
+  theta = theta - alpha/m*sum(X'*(X*theta-y))
+  J_history(iter) = computeCost(X, y, theta);
+ end
+ end
+ 
+ 
